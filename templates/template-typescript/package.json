@@ -1,0 +1,8 @@
+{
+  "main": "build/main.js",
+  "scripts": {
+    "compile": "tsc",
+    "dev": "tsc && node."
+  },
+  "license": "MIT"
+}
