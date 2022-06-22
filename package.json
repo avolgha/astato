@@ -19,10 +19,12 @@
     "got": "^12.1.0",
     "kleur": "^4.1.4",
     "listr": "^0.14.3",
-    "semver": "^7.3.7"
+    "semver": "^7.3.7",
+    "tsup": "^6.1.2"
   },
   "scripts": {
-    "compile": "tsc",
-    "dev": "tsc && node bin/astato.js %*"
+    "compile": "tsup -d build --minify --target esnext --format esm --sourcemap inline --tsconfig .\\tsconfig.json .\\src\\main.ts",
+    "dev": "yarn compile && node bin/astato.js",
+    "preinstall": "tsup -d build --minify --target esnext --format esm --sourcemap inline --tsconfig .\\tsconfig.json .\\src\\main.ts"
   }
 }
