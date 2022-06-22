@@ -136,7 +136,7 @@ export default function process(
 
         fs.writeFileSync(
           path.join(projectPath, "tsconfig.json"),
-          originalTsConfig
+          JSON.stringify(originalTsConfig, undefined, 2)
         );
       },
     },
