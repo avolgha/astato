@@ -69,6 +69,7 @@ export default function process(
                 description: response.options.values.description,
                 author: response.options.values.author,
                 version: "0.0.1",
+                license: "MIT",
               },
               ...packageJson,
             },
@@ -105,6 +106,14 @@ export default function process(
           ...pkgConfigContent.dependencies,
           //@ts-ignore
           typescript: "^" + registry["dist-tags"].latest,
+        };
+
+        pkgConfigContent.scripts = {
+          ...pkgConfigContent.scripts,
+          ...{
+            compile: "tsc",
+            dev: "tsc && node.",
+          },
         };
 
         fs.writeFileSync(pkgConfig, JSON.stringify(pkgConfigContent, null, 2));
