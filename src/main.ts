@@ -25,6 +25,12 @@ const { log, error } = {
       isTypescriptInstallable: "preinstalled",
       templateName: "template-typescript",
     },
+    {
+      name: "SolidJS + TS",
+      description: "SolidJS template with preinstalled TypeScript",
+      isTypescriptInstallable: "uninstallable", // this is because typescript is installed by solid rather than by astato
+      templateName: "template-solid",
+    },
   ];
 
   try {
