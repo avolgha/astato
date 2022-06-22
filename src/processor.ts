@@ -68,6 +68,7 @@ export default function process(
                 name: response.options.values.name,
                 description: response.options.values.description,
                 author: response.options.values.author,
+                version: "0.0.1",
               },
               ...packageJson,
             },
@@ -85,6 +86,11 @@ export default function process(
           projectType.isTypescriptInstallable !== "preinstalled"
         ) {
           task.skip("user has not selected TypeScript as a dependency");
+          return;
+        }
+
+        if (fs.existsSync(path.join(projectPath, "tsconfig.json"))) {
+          task.skip("there is already a typescript setup done");
           return;
         }
 
