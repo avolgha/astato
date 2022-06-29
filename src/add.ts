@@ -107,8 +107,8 @@ module.exports.file = file`;
       }
 
       source.body = `const content = fs.readFileSync(file, { encoding: "utf8" });
-const parsed = yaml.parse(content);
-return parsed${scriptFilePath.endsWith(".ts") ? " as T" : ""};`;
+  const parsed = yaml.parse(content);
+  return parsed${scriptFilePath.endsWith(".ts") ? " as T" : ""};`;
 
       writeFileSync(scriptFilePath, all());
 
