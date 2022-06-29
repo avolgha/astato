@@ -24,3 +24,10 @@ export interface DependencyVersionResult {
   name: string;
   version: string;
 }
+
+export type LogFunction = (...args: any[]) => void;
+
+export type Logger = {
+  log: LogFunction;
+  error: LogFunction;
+};
