@@ -102,8 +102,8 @@ export default function process(
           "https://registry.npmjs.org/typescript"
         ).json();
 
-        pkgConfigContent.dependencies = {
-          ...pkgConfigContent.dependencies,
+        pkgConfigContent.devDependencies = {
+          ...pkgConfigContent.devDependencies,
           //@ts-ignore
           typescript: "^" + registry["dist-tags"].latest,
         };
