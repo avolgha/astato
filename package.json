@@ -25,6 +25,6 @@
   "scripts": {
     "compile": "tsup -d build --minify --target esnext --format esm --sourcemap inline --tsconfig .\\tsconfig.json .\\src\\main.ts",
     "dev": "yarn compile && node bin/astato.js",
-    "preinstall": "tsup -d build --minify --target esnext --format esm --sourcemap inline --tsconfig .\\tsconfig.json .\\src\\main.ts"
+    "postinstall": "tsup -d build --minify --target esnext --format esm --sourcemap inline --tsconfig .\\tsconfig.json .\\src\\main.ts"
   }
 }
