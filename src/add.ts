@@ -34,7 +34,7 @@ export default async function add(args: string[], { log, error }: Logger) {
           )}, newest: ${kleur.cyan("" + yamlVersion)})`
         );
       } else {
-        pkgConfig.dependencies.yaml = yamlVersion;
+        pkgConfig.dependencies.yaml = "^" + yamlVersion;
         writeFileSync(pkg, JSON.stringify(pkgConfig, undefined, 2));
       }
 
