@@ -13,7 +13,7 @@ export default async function add(args: string[], { log, error }: Logger) {
 
   const template = args[0];
 
-  log(`adding ${kleur.cyan(template)}...\r`);
+  log(`adding ${kleur.cyan(template)}...`);
 
   switch (template) {
     case "config":
