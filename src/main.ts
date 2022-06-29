@@ -1,7 +1,9 @@
 import kleur from "kleur";
+import { argv } from "node:process";
+import add from "./add.js";
 import process from "./processor.js";
 import { executePrompt } from "./prompt.js";
-import { ProjectType } from "./types.js";
+import { Logger, ProjectType } from "./types.js";
 import * as util from "./utils.js";
 
 /*
@@ -10,13 +12,22 @@ TODO: Intialize a README?
 
 */
 
-const { log, error } = {
-  log: (...args: any[]) => console.log(kleur.green("info"), "  ", ...args),
-  error: (...args: any[]) => console.log(kleur.red("error"), " ", ...args),
+const logger: Logger = {
+  log: (...args: any[]) =>
+    console.log(kleur.bgGreen(kleur.white(" info ")), "  ", ...args),
+  error: (...args: any[]) =>
+    console.log(kleur.bgRed(kleur.white(" error ")), " ", ...args),
 };
 
 (async () => {
+  const { log, error } = logger;
+
   log(`Running Astato ${kleur.cyan(`v${await util.version()}`)}`);
+
+  if (argv.length > 2 && argv[2].toLowerCase() === "add") {
+    await add(argv.slice(3), logger);
+    return;
+  }
 
   const projectTypes: ProjectType[] = [
     {
