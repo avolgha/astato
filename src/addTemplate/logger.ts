@@ -49,7 +49,6 @@ ${source.body}
 
   if (scriptFilePath.endsWith(".ts")) {
     source.body = `export class Logger {
-
   info(...args: any[]): void {
     console.log(kleur.bgGreen().white(" info "), args);
   }
@@ -65,7 +64,6 @@ ${source.body}
   error(...args: any[]): void {
     console.log(kleur.bgRed().white(" error "), args);
   }
-
 }`;
   } else {
     let content: string;
@@ -92,7 +90,6 @@ ${source.body}
   error(...args) {
     console.log(kleur.bgRed().white(" error "), args);
   }
-
 }`;
 
     source.body = content;
