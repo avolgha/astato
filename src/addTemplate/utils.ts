@@ -4,7 +4,7 @@ import path from "path";
 import { LogFunction } from "../types";
 
 export function getPackageJson() {
-  const pkg = path.resolve(process.cwd(), "packag.json");
+  const pkg = path.resolve(process.cwd(), "package.json");
 
   if (!existsSync(pkg)) {
     throw new Error(`in the current working dir is no package.json file.`);
