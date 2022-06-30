@@ -54,4 +54,4 @@ const logger: Logger = {
       err
     );
   }
-})();
+})().catch((error) => logger.error(error.message));
