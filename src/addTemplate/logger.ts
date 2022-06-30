@@ -76,21 +76,22 @@ ${source.body}
       content = "module.exports.Logger = class Logger {";
     }
 
-    content += `  info(...args) {
-  console.log(kleur.bgGreen().white(" info "), args);
-}
+    content += `
+  info(...args) {
+    console.log(kleur.bgGreen().white(" info "), args);
+  }
 
   debug(...args) {
-  console.log(kleur.bgCyan().white(" debug "), args);
-}
+    console.log(kleur.bgCyan().white(" debug "), args);
+  }
 
   warn(...args) {
-  console.log(kleur.bgYellow().white(" warn "), args);
-}
+    console.log(kleur.bgYellow().white(" warn "), args);
+  }
 
   error(...args) {
-  console.log(kleur.bgRed().white(" error "), args);
-}
+    console.log(kleur.bgRed().white(" error "), args);
+  }
 
 }`;
 
