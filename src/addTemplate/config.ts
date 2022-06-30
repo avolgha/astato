@@ -4,19 +4,13 @@ import path from "path";
 import { getDependencyVersion } from "../checkDep";
 import { Logger } from "../types";
 import { getPackageManager } from "../utils";
+import { getPackageJson, getScriptFilePath } from "./utils";
 
 export default async function configAddTemplate(
   args: string[],
   { log, error }: Logger
 ) {
-  const pkg = path.resolve(process.cwd(), "package.json");
-
-  if (!existsSync(pkg)) {
-    error(`in the current working dir is no package.json file.`);
-    return;
-  }
-
-  const pkgConfig = JSON.parse(readFileSync(pkg, { encoding: "utf8" }));
+  const { pkg, pkgConfig } = getPackageJson();
   const { version: yamlVersion } = await getDependencyVersion("yaml");
 
   if (pkgConfig.dependencies.yaml) {
@@ -30,26 +24,10 @@ export default async function configAddTemplate(
     writeFileSync(pkg, JSON.stringify(pkgConfig, undefined, 2));
   }
 
-  let scriptFilePath: string;
-  if (args.length > 3) {
-    log(
-      `there was a file path for the config script provided: ${kleur.cyan(
-        args[3]
-      )}.`
-    );
-    scriptFilePath = path.resolve(process.cwd(), args[3]);
-  } else {
-    const tsOrJs = existsSync(path.resolve(process.cwd(), "tsconfig.json"));
-    scriptFilePath = path.resolve(
-      process.cwd(),
-      "src",
-      "config." + (tsOrJs ? "ts" : "js")
-    );
-  }
+  const scriptFilePath = getScriptFilePath("config", args, log);
 
   const source = {
     head: "",
-    fileExport: "",
     function: "",
     body: "",
   };

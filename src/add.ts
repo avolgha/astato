@@ -1,5 +1,6 @@
 import kleur from "kleur";
 import configAddTemplate from "./addTemplate/config";
+import loggerAddTemplate from "./addTemplate/logger";
 import { Logger } from "./types";
 
 export default async function add(args: string[], { log, error }: Logger) {
@@ -15,6 +16,9 @@ export default async function add(args: string[], { log, error }: Logger) {
   switch (template) {
     case "config":
       configAddTemplate(args, { log, error });
+      break;
+    case "logger":
+      loggerAddTemplate(args, { log, error });
       break;
     default:
       error(`unknown template ${kleur.cyan(template)}.`);
