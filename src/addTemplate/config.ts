@@ -8,7 +8,7 @@ import { getPackageJson, getScriptFilePath } from "./utils";
 
 export default async function configAddTemplate(
   args: string[],
-  { log, error }: Logger
+  { log }: Logger
 ) {
   const { pkg, pkgConfig } = getPackageJson();
   const { version: yamlVersion } = await getDependencyVersion("yaml");

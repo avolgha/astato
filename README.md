@@ -6,6 +6,25 @@ A simple cli tool for generating projects
 
 The name comes from the 85. element of the periodic system called `Astatine`. The name used here is the spanish version of the element because it sounded cooler than the english word.
 
+## » How to use
+
+There are _two_ different things you can do with this tool:
+
+1. create complete projects
+2. create code samples
+
+### » How to create projects
+
+Just run `astato` from the command line. Then there should be a guide you can follow.  
+If you have any questions about the behaviour, feel free to open an issue here.
+
+### » How to create code samples
+
+Generating code samples is a bit more complex. But the only thing you have to now is this theme: `astato add <sample>`.  
+At `<sample>` you have to add the name of the sample you want to generate. Currently, there is no way to list them all without looking into the source code of the project.  
+In the `src/addTemplate` directory, you can see all the templates you could use.  
+Just add one of them and you are ready to go :)
+
 ## » Installation
 
 To install the tool, you have to install it.
