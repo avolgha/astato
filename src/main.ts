@@ -1,10 +1,10 @@
 import kleur from "kleur";
 import { argv } from "node:process";
-import add from "./add.js";
-import process from "./processor.js";
-import { executePrompt } from "./prompt.js";
-import { Logger, ProjectType } from "./types.js";
-import * as util from "./utils.js";
+import add from "./add";
+import process from "./processor";
+import { executePrompt } from "./prompt";
+import { Logger, ProjectType } from "./types";
+import * as util from "./utils";
 
 /*
 

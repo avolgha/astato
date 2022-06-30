@@ -1,5 +1,5 @@
 import got from "got";
-import { DependencyVersionResult } from "./types.js";
+import { DependencyVersionResult } from "./types";
 
 export function checkDependency(dependency: string) {
   return new Promise<{

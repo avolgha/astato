@@ -2,9 +2,9 @@ import enquirer from "enquirer";
 const { prompt } = enquirer; // idk why but enquirer does not have named exports *shrug*
 import fs from "fs";
 import kleur from "kleur";
-import checkDependencies from "./checkDep.js";
-import { ProjectType, PromptResponse } from "./types.js";
-import * as util from "./utils.js";
+import checkDependencies from "./checkDep";
+import { ProjectType, PromptResponse } from "./types";
+import * as util from "./utils";
 
 export async function executePrompt(projectTypes: ProjectType[]) {
   return (await prompt([

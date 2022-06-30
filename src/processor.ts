@@ -6,7 +6,7 @@ import Listr from "listr";
 import path from "path";
 import nproc from "process";
 import { fileURLToPath } from "url";
-import { getDependencyVersions } from "./checkDep.js";
+import { getDependencyVersions } from "./checkDep";
 import {
   DependencyVersionResult,
   ProjectType,

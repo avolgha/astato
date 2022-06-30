@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, writeFileSync } from "fs";
+import { writeFileSync } from "fs";
 import kleur from "kleur";
 import path from "path";
 import { getDependencyVersion } from "../checkDep";
