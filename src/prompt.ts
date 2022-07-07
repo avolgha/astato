@@ -6,6 +6,18 @@ import checkDependencies from "./checkDep";
 import { ProjectType, PromptResponse } from "./types";
 import * as util from "./utils";
 
+/**
+ * Prompts the user questions about...
+ * - the project type
+ * - the project name, description, version
+ * - the directory
+ * - initialisation of git
+ * - adding of TypeScript
+ * - other dependencies
+ *
+ * @param projectTypes The project types that are available to use for the end-user
+ * @returns Returns an object representing the result of the prompt
+ */
 export async function executePrompt(projectTypes: ProjectType[]) {
   return (await prompt([
     {

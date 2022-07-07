@@ -14,6 +14,13 @@ import {
 } from "./types.js";
 import * as util from "./utils.js";
 
+/**
+ * This function uses the result of the prompt to create the given things for the end user.
+ *
+ * @param projectTypes The project types that are available to use for the end-user
+ * @param response The response of the `enquirer`-prompt
+ * @param log The default logger function that the process should print to
+ */
 export default function process(
   projectTypes: ProjectType[],
   response: PromptResponse,
